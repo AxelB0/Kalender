@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>welcome to your friendpage </h3>
+<div>
+    <table>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.userID}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.password}"></td>
+
+        </tr>
+    </table>
+</div>
+
+
+
+<h3>userID<input type = number name = userID></h3>
+
+</body>
+</html>
