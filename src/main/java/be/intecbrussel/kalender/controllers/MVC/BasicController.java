@@ -26,7 +26,7 @@ class BasicController {
 
     @GetMapping("/")
     public String hello(){
-        return "placeholder";
+        return "placeholder/placeholder";
     }
 
     @PostMapping(value = "/create", params = "create")
