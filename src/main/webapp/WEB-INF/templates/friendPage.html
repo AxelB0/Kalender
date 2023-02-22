@@ -3,23 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="index/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-<h3>welcome to your friendpage </h3>
-<div>
-    <table>
-        <tr th:each="user: ${users}">
-            <td th:text="${user.userID}"></td>
-            <td th:text="${user.username}"></td>
-            <td th:text="${user.password}"></td>
 
-        </tr>
-    </table>
+<div style="width: 100%;height: 100%; text-align: center;">
+    <h3>welcome to your friendpage </h3>
+    <div style="width: 50%; height: 90%; float: left; background: beige;">
+        <label>Friends:</label>
+<!--        <table class="txt2" id="friends">-->
+<!--            <tr th:each="user: ${friends}">-->
+<!--                &lt;!&ndash;            <td th:text="${user.userID}"></td>&ndash;&gt;-->
+<!--                &lt;!&ndash;            <td th:text="${user.username}"></td>&ndash;&gt;-->
+<!--                &lt;!&ndash;            <td></td>&ndash;&gt;-->
+<!--                &lt;!&ndash;            <td th:text="${user.password}"></td>&ndash;&gt;-->
+<!--                <td th:text="${user.username} +'&#8217;s birthday: ' + ${user.birthDay} + '/' + ${user.birthMonth} + '/' + ${user.birthYear}"></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+        <p th:each="user: ${friends}" th:text="${user.username} +'&#8217;s birthday: ' + ${user.birthDay} + '/' + ${user.birthMonth} + '/' + ${user.birthYear}" ></p>
+    </div>
+    <div style="margin-left: 50%; height: 90%; background: beige;">
+        <label>Strangers:</label>
+<!--        <table class="txt2" id="notFriendsTable">-->
+<!--            <tr th:each="user : ${notFriends}">-->
+<!--                &lt;!&ndash;            <td th:text="${user.userID}"></td>&ndash;&gt;-->
+<!--                <td th:text="${user.username}"></td>-->
+<!--                &lt;!&ndash;            <td th:text="${user.password}"></td>&ndash;&gt;-->
+<!--            </tr>-->
+<!--        </table>-->
+        <p th:each="user : ${notFriends}" th:text="${user.username}" ></p>
+
+        <label><br>Add friend:</label>
+        <form th:action="@{/friendPage/create}" method="post">
+            <select th:name="friendID" id="notFriendsSelect" name="user">
+                <option th:value="0">Choose Option:</option>
+                <option th:each="user: ${notFriends}" th:value="${user.userID}" th:text="${user.username}"></option>
+            </select>
+            <input type="submit"/>
+        </form>
+
+    </div>
+
+    <!--<h3>userID<input type=number name=userID></h3>-->
 </div>
-
-
-
-<h3>userID<input type = number name = userID></h3>
-
 </body>
 </html>

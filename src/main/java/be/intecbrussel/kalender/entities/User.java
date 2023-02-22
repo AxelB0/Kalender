@@ -96,4 +96,5 @@ public class User {
     public void setFriendship(List<Friendship> friendship) {
         this.friendship = friendship;
     }
+
 }

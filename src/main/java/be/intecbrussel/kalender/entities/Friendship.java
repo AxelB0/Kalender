@@ -11,6 +11,7 @@ public class Friendship {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int friendshipID;
 
+
     @ManyToOne
     private User friendshipOwner;
 
@@ -58,4 +59,5 @@ public class Friendship {
     public void setDate(int date) {
         this.date = date;
     }
+
 }
