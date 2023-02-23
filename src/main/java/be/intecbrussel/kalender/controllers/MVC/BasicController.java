@@ -28,13 +28,13 @@ class BasicController {
 
     @GetMapping("/")
     public String hello() {
-        return "placeholder";
+        return "index";
     }
 
     @PostMapping(value = "/create", params = "create")
     public String createUser(User userReceived) {
         userService.createUser(userReceived);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @PostMapping(value = "/create", params = "friendPage")
@@ -91,9 +91,10 @@ class BasicController {
 
     @PostMapping(value = "/send")
     public String login(User userReceived, HttpSession httpSession) {
-//        System.out.println(userReceived);
+        System.out.println(userReceived.getUsername());
 
         if (userService.getUserByUsernameAndPassword(userReceived.getUsername(), userReceived.getPassword()).isPresent()) {
+            System.out.println(userService.getUserByUsernameAndPassword(userReceived.getUsername(),userReceived.getPassword()).get().getUsername());
             httpSession.setAttribute("loggedInUsername", userReceived.getUsername());
             return "redirect:/friendPage";
         }
