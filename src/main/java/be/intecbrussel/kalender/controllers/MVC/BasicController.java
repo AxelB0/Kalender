@@ -102,5 +102,11 @@ class BasicController {
         return "redirect:/login";
     }
 
+    @PostMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.invalidate();
+        return "redirect:/login";
+    }
+
 
 }
