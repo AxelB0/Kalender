@@ -15,5 +15,7 @@ public interface UserService {
     List<User> getNotFriendsFromUser(String username, List<User> friends);
     Optional<User> findUserByUsername(String username);
 
+    List<User> findAll();
+
 
 }

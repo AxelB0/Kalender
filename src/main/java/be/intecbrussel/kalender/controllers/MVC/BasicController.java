@@ -108,5 +108,28 @@ class BasicController {
         return "redirect:/login";
     }
 
+    @GetMapping("/forgot")
+    public String forgot(Model model){
+        List<User> allUsers = userService.findAll();
+        model.addAttribute("allUsers", allUsers);
+        return "forgot";
+    }
+
+    @PostMapping("/forgot")
+    public String forgot(@RequestParam(value = "userID") int userID, HttpSession httpSession){
+        Optional<User> user = userService.findUserByID(userID);
+        if (user.isPresent()) {
+            System.out.println(user.get().getUsername());
+            httpSession.setAttribute("loggedInUsername", user.get().getUsername());
+        }
+        return "redirect:/login";
+    }
+
+    @GetMapping("/settings")
+    public String settings(HttpSession httpSession, Model model){
+
+        return null;
+    }
+
 
 }

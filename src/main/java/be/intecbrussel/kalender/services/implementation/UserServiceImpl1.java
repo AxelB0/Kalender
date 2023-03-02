@@ -64,4 +64,8 @@ public class UserServiceImpl1 implements UserService {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
 
+    public List<User> findAll(){
+        return userRepository.findAll();
+    }
+
 }

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I forgot my password</title>
+</head>
+<body>
+<form th:action="@{/forgot}" method="post">
+    <select th:name="userID" id="loginSelect" name="user">
+        <option th:value="0">Choose Option:</option>
+        <option th:each="user: ${allUsers}" th:value="${user.userID}" th:text="${user.username}"></option>
+    </select>
+    <button type ="submit">Login</button>
+</form>
+
+</body>
+</html>

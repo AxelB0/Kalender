@@ -41,7 +41,7 @@
                 <option th:value="0">Choose Option:</option>
                 <option th:each="user: ${notFriends}" th:value="${user.userID}" th:text="${user.username}"></option>
             </select>
-            <input type="submit"/>
+            <button type ="submit">Add</button>
         </form>
 
     </div>
